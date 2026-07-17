@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-turquoise: #63C8C6;
+  --color-turquoise-light: #A9E4E2;
+  --color-turquoise-dark: #3FA6A4;
+  --color-emerald: #2F5E57;
+  --color-emerald-light: #3E7A70;
+  --color-brass: #C9A468;
+  --color-ink: #1E293B;
+  --color-sand: #F8F9FA;
+  --color-success: #31C48D;
+
+  --font-heading: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+html.dark { color-scheme: dark; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+html.dark body { background-color: #0F1B19; color: #E6EFED; }
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); }
+
+::selection { background: var(--color-turquoise); color: white; }
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-sand); }
+::-webkit-scrollbar-thumb { background: var(--color-turquoise); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-emerald); }
+
+/* Signature: Material Swatch Strip — recurring divider styled like a
+   physical sample board of the materials Priangan sells */
+.swatch-strip { display: flex; height: 14px; width: 100%; overflow: hidden; border-radius: 999px; }
+.swatch-strip > span { flex: 1; }
+.swatch-wood { background: repeating-linear-gradient(100deg, #b98a52 0px, #a97a44 3px, #c49764 6px, #a97a44 9px); }
+.swatch-marble {
+  background:
+    linear-gradient(120deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%),
+    linear-gradient(200deg, transparent 60%, rgba(255,255,255,.35) 68%, transparent 76%),
+    #d9d3c9;
+}
+.swatch-turquoise { background: linear-gradient(135deg, var(--color-turquoise), var(--color-turquoise-dark)); }
+.swatch-emerald { background: linear-gradient(135deg, var(--color-emerald), var(--color-emerald-light)); }
+.swatch-panel { background: repeating-linear-gradient(90deg, #e7e2d8 0px, #e7e2d8 8px, #d8d2c4 8px, #d8d2c4 9px); }
+.swatch-brass { background: linear-gradient(135deg, #dcb87e, var(--color-brass)); }
+
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.dark .glass { background: rgba(15, 27, 25, 0.55); border: 1px solid rgba(255,255,255,0.08); }
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-emerald), var(--color-turquoise-dark) 60%, var(--color-turquoise));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.reduced-motion, .reduced-motion * {
+  animation-duration: 0.001ms !important;
+  transition-duration: 0.001ms !important;
+}
