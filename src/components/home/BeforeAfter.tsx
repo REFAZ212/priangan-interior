@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { MoveHorizontal } from 'lucide-react'
 import { SectionHeading } from './ProductCategories'
 
-const BEFORE = 'https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1200&auto=format&fit=crop'
-const AFTER = 'https://images.unsplash.com/photo-1618219878830-89b0deacf278?q=80&w=1200&auto=format&fit=crop'
+const BEFORE = 'public/before.png'
+const AFTER = 'public/after.jpeg'
 
 export default function BeforeAfter() {
   const [pos, setPos] = useState(50)

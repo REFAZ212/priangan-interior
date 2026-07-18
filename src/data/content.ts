@@ -11,7 +11,7 @@ export const galleryCategories = [
 ]
 
 export const galleryItems: GalleryItem[] = [
-  { id: 'g1', category: 'Living Room', title: 'Ruang Tamu Wallpanel Turquoise', image: 'https://images.unsplash.com/photo-1618219878830-89b0deacf278?q=80&w=800&auto=format&fit=crop', height: 'lg' },
+  { id: 'g1', category: 'Living Room', title: 'Ruang Tamu Wallpanel Turquoise', image: 'public/ruangtamu.jpeg', height: 'lg' },
   { id: 'g2', category: 'Bedroom', title: 'Kamar Tidur UV Marble', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800&auto=format&fit=crop', height: 'md' },
   { id: 'g3', category: 'Kitchen', title: 'Dapur SPC Flooring', image: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop', height: 'sm' },
   { id: 'g4', category: 'Cafe', title: 'Cafe Bamboo Board', image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop', height: 'lg' },
@@ -62,7 +62,7 @@ export interface EducationArticle {
 }
 
 export const educationArticles: EducationArticle[] = [
-  { id: 'e1', title: 'Cara Memilih Wall Panel yang Tepat untuk Rumah Anda', excerpt: 'Panduan memilih motif, warna, dan jenis material wall panel sesuai gaya interior rumah.', category: 'Wallpanel', readTime: '5 menit', image: 'https://images.unsplash.com/photo-1618219878830-89b0deacf278?q=80&w=700&auto=format&fit=crop' },
+  { id: 'e1', title: 'Cara Memilih Wall Panel yang Tepat untuk Rumah Anda', excerpt: 'Panduan memilih motif, warna, dan jenis material wall panel sesuai gaya interior rumah.', category: 'Wallpanel', readTime: '5 menit', image: 'public/walpanel.jpeg' },
   { id: 'e2', title: 'Manfaat UV Marble untuk Interior Premium', excerpt: 'Mengapa UV Marble menjadi pilihan populer untuk tampilan mewah dengan perawatan minim.', category: 'UV Marble', readTime: '4 menit', image: 'https://images.unsplash.com/photo-1615873968403-89e068629265?q=80&w=700&auto=format&fit=crop' },
   { id: 'e3', title: 'SPC vs Vinyl: Mana yang Cocok untuk Area Anda?', excerpt: 'Perbandingan ketahanan, harga, dan estetika antara lantai SPC dan Vinyl.', category: 'Flooring', readTime: '6 menit', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=700&auto=format&fit=crop' },
   { id: 'e4', title: 'Material Plafon Terbaik untuk Iklim Tropis', excerpt: 'Rekomendasi material plafon yang tahan lembap dan sejuk untuk hunian di Indonesia.', category: 'Plafon', readTime: '5 menit', image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?q=80&w=700&auto=format&fit=crop' },
