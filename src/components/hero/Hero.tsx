@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import CountUp from 'react-countup'
 import { useInView } from 'react-intersection-observer'
 import { ArrowRight, ChevronDown, MapPin } from 'lucide-react'
 
@@ -9,6 +9,53 @@ const stats = [
   { label: 'Jenis Produk', value: 40, suffix: '+' },
   { label: 'Cabang', value: 6, suffix: '' },
 ]
+
+// Komponen count-up ringan buatan sendiri — menggantikan react-countup
+// (menghindari masalah interop CJS/ESM yang bikin error "Element type is invalid")
+function CountUpNumber({
+  end,
+  duration = 2,
+  suffix = '',
+  start,
+}: {
+  end: number
+  duration?: number
+  suffix?: string
+  start: boolean
+}) {
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    if (!start) return
+
+    let startTime: number | null = null
+    let frameId: number
+
+    const step = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1)
+      // easeOutExpo biar terasa mirip react-countup
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress)
+      setValue(Math.floor(eased * end))
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step)
+      } else {
+        setValue(end)
+      }
+    }
+
+    frameId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(frameId)
+  }, [start, end, duration])
+
+  return (
+    <>
+      {value}
+      {suffix}
+    </>
+  )
+}
 
 export default function Hero() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 })
@@ -97,7 +144,7 @@ export default function Hero() {
             {stats.map((s) => (
               <div key={s.label}>
                 <p className="font-heading text-2xl font-bold text-emerald dark:text-turquoise-light sm:text-3xl">
-                  {inView ? <CountUp end={s.value} duration={2} suffix={s.suffix} /> : '0'}
+                  <CountUpNumber end={s.value} duration={2} suffix={s.suffix} start={inView} />
                 </p>
                 <p className="mt-1 text-xs text-ink/60 dark:text-white/60">{s.label}</p>
               </div>
